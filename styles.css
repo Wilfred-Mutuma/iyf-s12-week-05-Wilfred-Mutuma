@@ -1,0 +1,239 @@
+
+/* 1. Basic page setup */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f3f6fb;
+    color: #243047;
+    line-height: 1.6;
+}
+
+/* 2. Header */
+.app-header {
+    background: #1e3a8a;
+    color: white;
+    text-align: center;
+    padding: 35px 20px;
+}
+
+.app-header h1 {
+    margin: 0 0 8px;
+    font-size: 2.2rem;
+}
+
+.app-header p {
+    margin: 0;
+    color: #dbeafe;
+}
+
+/* 3. Main container */
+.todo-container {
+    width: min(700px, 92%);
+    margin: 30px auto;
+}
+
+.add-task-section,
+.task-section {
+    background: white;
+    padding: 24px;
+    margin-bottom: 22px;
+    border-radius: 12px;
+    box-shadow: 0 4px 14px rgba(15, 23, 42, 0.08);
+}
+
+h2 {
+    margin-top: 0;
+    font-size: 1.25rem;
+}
+
+/* 4. Input and Add Task button */
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.input-group {
+    display: flex;
+    gap: 10px;
+}
+
+#task-input {
+    flex: 1;
+    min-width: 0;
+    padding: 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 7px;
+    font-size: 1rem;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    border-radius: 7px;
+    padding: 11px 15px;
+    font-size: 0.95rem;
+    transition: background-color 0.2s ease;
+}
+
+#add-task-button {
+    background: #2563eb;
+    color: white;
+    font-weight: bold;
+}
+
+#add-task-button:hover {
+    background: #1d4ed8;
+}
+
+button:focus-visible,
+input:focus-visible {
+    outline: 3px solid #93c5fd;
+    outline-offset: 2px;
+}
+
+/* 5. Task filters */
+.task-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 18px;
+}
+
+.filter-button {
+    background: #e2e8f0;
+    color: #334155;
+}
+
+.filter-button:hover {
+    background: #cbd5e1;
+}
+
+.filter-button.active {
+    background: #1e3a8a;
+    color: white;
+}
+
+/* 6. Task list */
+#task-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.task-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 13px 0;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.task-item:last-child {
+    border-bottom: none;
+}
+
+.task-text {
+    flex: 1;
+    overflow-wrap: anywhere;
+}
+
+.task-item.completed .task-text {
+    text-decoration: line-through;
+    color: #64748b;
+}
+
+.complete-checkbox {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+.task-actions {
+    display: flex;
+    gap: 6px;
+}
+
+.edit-button {
+    background: #dbeafe;
+    color: #1e40af;
+}
+
+.delete-button {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+.edit-button:hover {
+    background: #bfdbfe;
+}
+
+.delete-button:hover {
+    background: #fecaca;
+}
+
+/* 7. Task footer */
+.task-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 18px;
+}
+
+#tasks-remaining {
+    margin: 0;
+    color: #475569;
+}
+
+#clear-completed {
+    background: #e2e8f0;
+    color: #334155;
+}
+
+#clear-completed:hover {
+    background: #cbd5e1;
+}
+
+.empty-message {
+    padding: 20px 0;
+    color: #64748b;
+    text-align: center;
+}
+
+/* 8. Footer */
+.app-footer {
+    text-align: center;
+    color: #64748b;
+    padding: 15px 20px 30px;
+    font-size: 0.9rem;
+}
+
+/* 9. Small screens */
+@media (max-width: 480px) {
+    .app-header h1 {
+        font-size: 1.8rem;
+    }
+
+    .add-task-section,
+    .task-section {
+        padding: 18px;
+    }
+
+    .input-group {
+        flex-direction: column;
+    }
+
+    #add-task-button {
+        width: 100%;
+    }
+
+    .task-item {
+        align-items: flex-start;
+    }
+}

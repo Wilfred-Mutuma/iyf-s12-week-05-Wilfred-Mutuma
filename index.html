@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wilfred's To-Do List</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="app-header">
+        <h1>My To-Do List</h1>
+        <p>Organise your tasks, one step at a time.</p>
+    </header>
+
+    <main class="todo-container">
+        <section class="add-task-section">
+            <h2>Add a Task</h2>
+
+            <form id="todo-form">
+                <label for="task-input">What do you need to do?</label>
+
+                <div class="input-group">
+                    <input
+                        type="text"
+                        id="task-input"
+                        placeholder="Enter your task..."
+                        autocomplete="off"
+                        required
+                    >
+                    <button type="submit" id="add-task-button">Add Task</button>
+                </div>
+            </form>
+        </section>
+
+        <section class="task-section">
+            <h2>Your Tasks</h2>
+
+            <div class="task-filters" aria-label="Filter tasks">
+                <button type="button" class="filter-button active" data-filter="all">
+                    All
+                </button>
+                <button type="button" class="filter-button" data-filter="active">
+                    Active
+                </button>
+                <button type="button" class="filter-button" data-filter="completed">
+                    Completed
+                </button>
+            </div>
+
+            <ul id="task-list" aria-live="polite">
+                <!-- JavaScript will add tasks here -->
+            </ul>
+
+            <div class="task-footer">
+                <p id="tasks-remaining">0 tasks remaining</p>
+                <button type="button" id="clear-completed">
+                    Clear Completed
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <footer class="app-footer">
+        <p>Week 5 DOM Manipulation Practice — Wilfred Mutuma</p>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>

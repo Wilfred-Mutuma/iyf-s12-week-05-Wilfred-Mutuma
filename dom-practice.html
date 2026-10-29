@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Practice</title>
+    <style>
+        .highlight {
+            background-color: yellow;
+        }
+
+        .container {
+            padding: 20px;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <header id="main-header">
+        <h1>DOM Practice</h1>
+        <nav>
+            <ul class="nav-list">
+                <li><a href="#" class="nav-link">Home</a></li>
+                <li><a href="#" class="nav-link">About</a></li>
+                <li><a href="#" class="nav-link">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <article>
+            <h2 class="title">Article Title</h2>
+            <p class="content">This is the first paragraph.</p>
+            <p class="content">This is the second paragraph.</p>
+        </article>
+
+        <section>
+            <h2>Form Section</h2>
+            <form id="contact-form">
+                <input type="text" id="name" name="name" placeholder="Name">
+                <input type="email" id="email" name="email" placeholder="Email">
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026</p>
+    </footer>
+    
+<section id="event-practice">
+    <h2>Lesson 10: Event Practice</h2>
+    <p>Button clicked: <span id="click-count">0</span> times</p>
+    <button id="click-button" type="button">Click Me</button>
+</section>
+
+<section id="keyboard-practice">
+    <h2>Keyboard Event Practice</h2>
+    <p>Type in the box below, or press Escape to clear it.</p>
+    <input type="text" id="keyboard-input" placeholder="Type something here">
+    <p id="keyboard-message">Waiting for keyboard input...</p>
+</section>
+
+<section id="delegation-practice">
+    <h2>Event Delegation Practice</h2>
+    <p>Click any item in this list:</p>
+    <ul id="delegation-list">
+        <li><button type="button" class="delegation-item">Item One</button></li>
+        <li><button type="button" class="delegation-item">Item Two</button></li>
+        <li><button type="button" class="delegation-item">Item Three</button></li>
+    </ul>
+    <p id="delegation-message">No item selected yet.</p>
+</section>
+
+<section id="validation-practice">
+    <h2>Form Validation Practice</h2>
+
+    <form id="validation-form" novalidate>
+        <label for="validation-name">Name:</label>
+        <input type="text" id="validation-name" required>
+
+        <label for="validation-email">Email:</label>
+        <input type="email" id="validation-email" required>
+
+        <p id="validation-message" aria-live="polite"></p>
+
+        <button type="submit">Submit Form</button>
+    </form>
+</section>
+
+    <script src="dom.js"></script>
+    
+</body>
+</html>

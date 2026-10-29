@@ -1,0 +1,69 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 5 - Dark Mode Toggle</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 40px 20px;
+            background: #f8fafc;
+            color: #1e293b;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        main {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .dark-mode {
+            background: #0f172a;
+            color: #f1f5f9;
+        }
+
+        .content-box {
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            background: #e2e8f0;
+        }
+
+        .dark-mode .content-box {
+            background: #1e293b;
+        }
+
+        button {
+            padding: 12px 18px;
+            border: none;
+            border-radius: 6px;
+            background: #2563eb;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <h1>Day 5: Dark Mode Toggle</h1>
+        <p>Click the button to switch between light and dark modes.</p>
+
+        <button type="button" id="theme-button" aria-pressed="false">
+            Enable Dark Mode
+        </button>
+
+        <section class="content-box">
+            <h2>Welcome, Wilfred!</h2>
+            <p>You're completing your Week 5 JavaScript DOM challenges.</p>
+        </section>
+
+        <p id="theme-message" aria-live="polite">Light mode is active.</p>
+    </main>
+
+    <script src="day5-dark-mode.js"></script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 3 - Image Remover</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        .image-card {
+            display: inline-block;
+            vertical-align: top;
+            margin: 10px;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .image-card img {
+            display: block;
+            width: 180px;
+            height: 130px;
+            object-fit: cover;
+            border-radius: 6px;
+        }
+
+        button {
+            margin-top: 10px;
+            padding: 8px 12px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Day 3: Image Remover</h1>
+    <p>Click Remove Image to delete an image from the page.</p>
+
+    <div id="image-gallery">
+        <div class="image-card">
+            <img src="https://picsum.photos/id/1015/300/200" alt="Mountain landscape">
+            <button type="button" class="remove-image">Remove Image</button>
+        </div>
+
+        <div class="image-card">
+            <img src="https://picsum.photos/id/1025/300/200" alt="Dog">
+            <button type="button" class="remove-image">Remove Image</button>
+        </div>
+
+        <div class="image-card">
+            <img src="https://picsum.photos/id/1039/300/200" alt="Coastal landscape">
+            <button type="button" class="remove-image">Remove Image</button>
+        </div>
+    </div>
+
+    <script src="day3-image-remover.js"></script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 4 - Content Copier</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 700px;
+            margin: 40px auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .content-box {
+            background: #f1f5f9;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        button {
+            padding: 10px 16px;
+            background: #2563eb;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Day 4: Content Copier</h1>
+
+    <div class="content-box">
+        <h2>Original Content</h2>
+        <p id="original-content">
+            I am learning JavaScript DOM manipulation in Week 5 of the IYF Academy.
+        </p>
+    </div>
+
+    <button type="button" id="copy-button">Copy Content</button>
+
+    <div class="content-box">
+        <h2>Copied Content</h2>
+        <p id="copied-content">Your copied content will appear here.</p>
+    </div>
+
+    <p id="copy-message" aria-live="polite"></p>
+
+    <script src="day4-content-copier.js"></script>
+</body>
+</html>
