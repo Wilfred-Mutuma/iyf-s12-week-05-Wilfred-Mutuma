@@ -93,10 +93,6 @@ The `dom-practice.html` page and `dom.js` file contain practice with:
 
 Through these exercises, I practised selecting and manipulating DOM elements, creating dynamic content, responding to events, handling form input, and building an interactive web application.
 
-## Repository
-
-[View my Week 5 GitHub repository](https://github.com/Wilfred-Mutuma/iyf-s12-week-05-Wilfred-Mutuma)
-
 ## Lessons Learned
 
 During Week 5, I learned how to make web pages interactive using JavaScript DOM manipulation and events.
@@ -119,14 +115,6 @@ During Week 5, I learned how to make web pages interactive using JavaScript DOM 
 
 One challenge was implementing the editing feature so that Enter saves changes while Escape cancels them. I improved the event handling to ensure that cancelling an edit does not accidentally save it.
 
-## Live Demo
-
-[View my Week 5 To-Do List](https://wilfred-mutuma.github.io/iyf-s12-week-05-Wilfred-Mutuma/)
-
-## GitHub Repository
-
-[View my Week 5 GitHub Repository](https://github.com/Wilfred-Mutuma/iyf-s12-week-05-Wilfred-Mutuma)
-
 ## Testing and Validation
 
 I tested the To-Do List application to confirm that:
@@ -135,3 +123,13 @@ I tested the To-Do List application to confirm that:
 - Double-click editing works, with Enter to save and Escape to cancel.
 - Clear Completed removes completed tasks.
 - HTML-like user input such as `<b>hi</b>` is displayed as plain text and is not interpreted as HTML.
+
+## Project Links
+
+- **Live Demo:** [View my Week 5 To-Do List](https://wilfred-mutuma.github.io/iyf-s12-week-05-Wilfred-Mutuma/)
+- **GitHub Repository:** [View my Week 5 GitHub Repository](https://github.com/Wilfred-Mutuma/iyf-s12-week-05-Wilfred-Mutuma)
+
+---
+
+**Prepared by Wilfred Mutuma**  
+IYF Weekend Academy — Season 12 | Week 5
