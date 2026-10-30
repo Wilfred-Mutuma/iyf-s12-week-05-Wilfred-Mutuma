@@ -95,3 +95,33 @@ Through these exercises, I practised selecting and manipulating DOM elements, cr
 ## Repository
 
 [View my Week 5 GitHub repository](https://github.com/Wilfred-Mutuma/iyf-s12-week-05-Wilfred-Mutuma)
+
+## Lessons Learned
+
+During Week 5, I learned how to make web pages interactive using JavaScript DOM manipulation and events.
+
+1. **DOM Selection:** I learned to select HTML elements using methods such as `getElementById()`, `querySelector()`, and `querySelectorAll()`.
+
+2. **DOM Manipulation:** I practised changing text content, attributes, styles, and creating or removing HTML elements dynamically.
+
+3. **Event Handling:** I learned how to use `addEventListener()` to respond to clicks, keyboard input, and form submissions.
+
+4. **Event Delegation:** I learned that attaching one event listener to a parent element allows newly created tasks to respond to clicks without adding separate listeners to each task.
+
+5. **Arrays and Objects:** I learned how to store tasks as objects inside an array and redraw the task list whenever the data changes.
+
+6. **Safe User Input:** I learned to use `textContent` when displaying user-entered text to prevent HTML from being interpreted as markup.
+
+7. **Interactive Applications:** I applied these skills to build a working To-Do List with task creation, completion, deletion, filtering, and editing.
+
+## Challenges and Improvements
+
+One challenge was implementing the editing feature so that Enter saves changes while Escape cancels them. I improved the event handling to ensure that cancelling an edit does not accidentally save it.
+
+## Live Demo
+
+[View my Week 5 To-Do List](https://wilfred-mutuma.github.io/iyf-s12-week-05-Wilfred-Mutuma/)
+
+## GitHub Repository
+
+[View my Week 5 GitHub Repository](https://github.com/Wilfred-Mutuma/iyf-s12-week-05-Wilfred-Mutuma)
