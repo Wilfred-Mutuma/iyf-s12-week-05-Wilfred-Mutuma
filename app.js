@@ -4,7 +4,7 @@
    Wilfred Mutuma
 ========================================= */
 
-// Select the HTML elements
+// Select HTML elements
 const todoForm = document.getElementById("todo-form");
 const taskInput = document.getElementById("task-input");
 const taskList = document.getElementById("task-list");
@@ -12,7 +12,7 @@ const tasksRemaining = document.getElementById("tasks-remaining");
 const clearCompletedButton = document.getElementById("clear-completed");
 const filterButtons = document.querySelectorAll(".filter-button");
 
-// Store tasks while the page is open
+// Store tasks in an array of objects
 let tasks = [];
 let currentFilter = "all";
 let nextTaskId = 1;
@@ -21,33 +21,24 @@ let nextTaskId = 1;
 function addTask(taskText) {
     const trimmedText = taskText.trim();
 
-    if (trimmedText === "") {
-        return;
-    }
+    if (trimmedText === "") return;
 
-    const task = {
+    tasks.push({
         id: nextTaskId++,
         text: trimmedText,
         completed: false
-    };
+    });
 
-    tasks.push(task);
     renderTasks();
 }
 
-// Display tasks on the page
+// Display tasks
 function renderTasks() {
     taskList.innerHTML = "";
 
     const filteredTasks = tasks.filter(function (task) {
-        if (currentFilter === "active") {
-            return !task.completed;
-        }
-
-        if (currentFilter === "completed") {
-            return task.completed;
-        }
-
+        if (currentFilter === "active") return !task.completed;
+        if (currentFilter === "completed") return task.completed;
         return true;
     });
 
@@ -75,25 +66,17 @@ function renderTasks() {
             listItem.classList.add("completed");
         }
 
-        // Checkbox to mark a task complete
         const checkbox = document.createElement("input");
         checkbox.type = "checkbox";
         checkbox.className = "complete-checkbox";
         checkbox.checked = task.completed;
         checkbox.setAttribute("aria-label", "Mark task complete");
 
-        // Task text
         const taskTextElement = document.createElement("span");
         taskTextElement.className = "task-text";
         taskTextElement.textContent = task.text;
+        taskTextElement.title = "Double-click to edit";
 
-        // Edit button
-        const editButton = document.createElement("button");
-        editButton.type = "button";
-        editButton.className = "edit-button";
-        editButton.textContent = "Edit";
-
-        // Delete button
         const deleteButton = document.createElement("button");
         deleteButton.type = "button";
         deleteButton.className = "delete-button";
@@ -101,7 +84,7 @@ function renderTasks() {
 
         const actions = document.createElement("div");
         actions.className = "task-actions";
-        actions.append(editButton, deleteButton);
+        actions.appendChild(deleteButton);
 
         listItem.append(checkbox, taskTextElement, actions);
         taskList.appendChild(listItem);
@@ -110,17 +93,17 @@ function renderTasks() {
     updateRemainingCount();
 }
 
-// Update the number of active tasks
+// Update remaining task count
 function updateRemainingCount() {
     const remaining = tasks.filter(function (task) {
         return !task.completed;
     }).length;
 
     tasksRemaining.textContent =
-        remaining + (remaining === 1 ? " task remaining" : " tasks remaining");
+        remaining + (remaining === 1 ? " item left" : " items left");
 }
 
-// Handle adding tasks using the form
+// Add tasks using the form
 todoForm.addEventListener("submit", function (event) {
     event.preventDefault();
 
@@ -129,49 +112,26 @@ todoForm.addEventListener("submit", function (event) {
     taskInput.focus();
 });
 
-// Handle task completion, editing, and deleting
+// ONE click listener: delete tasks using event delegation
 taskList.addEventListener("click", function (event) {
     const listItem = event.target.closest(".task-item");
 
-    if (!listItem) {
-        return;
-    }
+    if (!listItem) return;
 
     const taskId = Number(listItem.dataset.taskId);
-    const task = tasks.find(function (item) {
-        return item.id === taskId;
-    });
 
-    if (!task) {
-        return;
-    }
-
-    // Delete a task
     if (event.target.classList.contains("delete-button")) {
-        tasks = tasks.filter(function (item) {
-            return item.id !== taskId;
+        tasks = tasks.filter(function (task) {
+            return task.id !== taskId;
         });
 
         renderTasks();
-        return;
-    }
-
-    // Edit a task
-    if (event.target.classList.contains("edit-button")) {
-        const newText = prompt("Edit your task:", task.text);
-
-        if (newText !== null && newText.trim() !== "") {
-            task.text = newText.trim();
-            renderTasks();
-        }
     }
 });
 
-// Handle checking or unchecking tasks
+// Complete or uncomplete tasks
 taskList.addEventListener("change", function (event) {
-    if (!event.target.classList.contains("complete-checkbox")) {
-        return;
-    }
+    if (!event.target.classList.contains("complete-checkbox")) return;
 
     const listItem = event.target.closest(".task-item");
     const taskId = Number(listItem.dataset.taskId);
@@ -186,7 +146,77 @@ taskList.addEventListener("change", function (event) {
     }
 });
 
-// Handle All, Active, and Completed filters
+ // BONUS: Double-click a task to edit it
+taskList.addEventListener("dblclick", function (event) {
+    const taskTextElement = event.target.closest(".task-text");
+
+    if (!taskTextElement) return;
+
+    const listItem = taskTextElement.closest(".task-item");
+    const taskId = Number(listItem.dataset.taskId);
+
+    const task = tasks.find(function (item) {
+        return item.id === taskId;
+    });
+
+    if (!task || task.completed) return;
+
+    if (listItem.querySelector(".edit-input")) return;
+
+    const editInput = document.createElement("input");
+    editInput.type = "text";
+    editInput.className = "edit-input";
+    editInput.value = task.text;
+    editInput.setAttribute("aria-label", "Edit task");
+
+    taskTextElement.replaceWith(editInput);
+
+    editInput.focus();
+    editInput.select();
+
+    // Track whether editing has finished
+    let editFinished = false;
+
+    // Save changes
+    function saveEdit() {
+        if (editFinished) return;
+
+        editFinished = true;
+
+        const newText = editInput.value.trim();
+
+        if (newText !== "") {
+            task.text = newText;
+        }
+
+        renderTasks();
+    }
+
+    // Cancel changes
+    function cancelEdit() {
+        if (editFinished) return;
+
+        editFinished = true;
+        renderTasks();
+    }
+
+    editInput.addEventListener("keydown", function (keyEvent) {
+        if (keyEvent.key === "Enter") {
+            keyEvent.preventDefault();
+            saveEdit();
+        }
+
+        if (keyEvent.key === "Escape") {
+            keyEvent.preventDefault();
+            cancelEdit();
+        }
+    });
+
+    // Save when clicking outside the input
+    editInput.addEventListener("blur", saveEdit);
+});
+
+// Handle filters
 filterButtons.forEach(function (button) {
     button.addEventListener("click", function () {
         currentFilter = button.dataset.filter;
@@ -200,7 +230,7 @@ filterButtons.forEach(function (button) {
     });
 });
 
-// Remove all completed tasks
+// Clear completed tasks
 clearCompletedButton.addEventListener("click", function () {
     tasks = tasks.filter(function (task) {
         return !task.completed;
@@ -209,7 +239,7 @@ clearCompletedButton.addEventListener("click", function () {
     renderTasks();
 });
 
-// Show the initial empty list
+// Initial display
 renderTasks();
 
 console.log("To-Do List application is ready!");
