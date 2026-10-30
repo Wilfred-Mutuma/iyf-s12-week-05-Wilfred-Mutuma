@@ -24,7 +24,8 @@ The main application is available in `index.html`.
 - Filter tasks by All, Active, and Completed.
 - Display the number of remaining tasks.
 - Clear completed tasks.
-- Edit tasks using the Edit button.
+- Edit tasks by double-clicking them.
+- Press Enter to save an edit or Escape to cancel.
 
 ## Repository Structure
 
