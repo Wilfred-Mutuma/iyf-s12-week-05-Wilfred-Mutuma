@@ -126,3 +126,12 @@ One challenge was implementing the editing feature so that Enter saves changes w
 ## GitHub Repository
 
 [View my Week 5 GitHub Repository](https://github.com/Wilfred-Mutuma/iyf-s12-week-05-Wilfred-Mutuma)
+
+## Testing and Validation
+
+I tested the To-Do List application to confirm that:
+
+- Tasks can be added, completed, deleted, and filtered.
+- Double-click editing works, with Enter to save and Escape to cancel.
+- Clear Completed removes completed tasks.
+- HTML-like user input such as `<b>hi</b>` is displayed as plain text and is not interpreted as HTML.
